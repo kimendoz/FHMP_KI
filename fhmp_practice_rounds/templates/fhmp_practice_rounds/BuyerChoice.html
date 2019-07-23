@@ -1,0 +1,53 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+	Make bids on each seller's asset
+{% endblock %}
+
+{% block content %}
+	<table class="table">
+		<tbody>
+			<tr>
+				<th scope="col">
+					Your budget
+				</th>
+				<td>{{ player.budget }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<p>
+		These bids are private to other buyers.
+	</p>
+
+	<div class="row">
+		<div class="col-md-12">
+			<p><strong><u>Seller 1</u></strong></p>
+			<p>Seller 1 has chosen to disclose a range of {{asset1_disclose_interval}} points.</p>
+			<p>Based on this range, the fact checker has given the Seller a grade of {{seller1_grade}}.</p>
+	{% formfield player.bid_asset1 label="How much will you bid for Seller 1's Asset?" %}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<p><strong><u>Seller 2</u></strong></p>
+			<p>Seller 2 has chosen to disclose a range of {{asset2_disclose_interval}} points. </p>
+			<p>Based on this range, the fact checker has given the Seller a grade of {{seller2_grade}}.</p>
+	{% formfield player.bid_asset2 label="How much will you bid for Seller 2's Asset?" %}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<p><strong><u>Seller 3</u></strong></p>
+			<p>Seller 3 has chosen to disclose a range of {{asset3_disclose_interval}} points.</p>
+			<p>Based on this range, the fact checker has given the Seller a grade of {{seller3_grade}}.</p>
+	{% formfield player.bid_asset3 label="How much will you bid for Seller 3's Asset?" %}
+		</div>
+	</div>
+
+	{% next_button %}
+
+{% endblock %}
